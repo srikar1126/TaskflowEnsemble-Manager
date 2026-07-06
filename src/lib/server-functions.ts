@@ -316,6 +316,36 @@ export const deleteProjectFn = createServerFn({ method: "POST" })
     return { success: true };
   });
 
+export const updateProjectFn = createServerFn({ method: "POST" })
+  .validator((data: { id: string; name: string; description: string; dueDate: string; memberIds: string[] }) => data)
+  .handler(async ({ data }) => {
+    const user = await getAuthenticatedUser();
+    if (!user) throw new Error("Unauthorized");
+    if (user.role !== "Admin" && user.role !== "Manager") {
+      throw new Error("Only Administrators and Managers can edit projects.");
+    }
+
+    await db.execute({
+      sql: "UPDATE projects SET name = ?, description = ?, due_date = ? WHERE id = ?",
+      args: [data.name, data.description, data.dueDate, data.id]
+    });
+
+    await db.execute({
+      sql: "DELETE FROM project_members WHERE project_id = ?",
+      args: [data.id]
+    });
+
+    for (const memberId of data.memberIds) {
+      await db.execute({
+        sql: "INSERT INTO project_members (project_id, user_id) VALUES (?, ?)",
+        args: [data.id, memberId]
+      });
+    }
+
+    return { success: true };
+  });
+
+
 // ----------------------------------------------------
 // Task Functions
 // ----------------------------------------------------
