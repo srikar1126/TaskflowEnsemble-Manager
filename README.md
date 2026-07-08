@@ -1,75 +1,100 @@
-# TeamFlow Enterprise Workspace
+# Project Overview
 
-TeamFlow is a premium, collaborative team project and task management dashboard designed with a modern, glassmorphic UI. It features real-time state persistence, interactive boards, advanced reporting, and a robust tracking system.
+**Taskflow Ensemble – Starter Template**
 
----
-
-## 🚀 Key Features
-
-*   **Interactive Kanban Board**: Fully draggable status board that automatically updates task statuses on the fly.
-*   **List View with Bulk Actions**: Mass-select tasks to batch **Assign** owners, **Change status**, or **Delete** items simultaneously.
-*   **Global "+ New Task" Creation**: Add new tasks instantly from any page with a structured form containing validations (Project, Assignee, Priority, and Due Date).
-*   **Root Cause Analysis (RCA)**: Create, document, and review team retrospectives with severity tracking and assigned reviewers.
-*   **User Workloads**: Live tracking of user tasks, projects count, and workloads.
-*   **Real-time Notifications**: Global notifications panel updating instantly on task assignments.
+This repository is a lightweight Vite + React + TypeScript starter kit that showcases a clean component layout, TanStack Router for navigation, Tailwind CSS styling, and a few sample charts.
 
 ---
 
-## 💻 Tech Stack
+## Getting Started
 
-*   **Frontend**: React, TanStack Start (SSR/CSR framework), TanStack Router, and TanStack Query.
-*   **Styling**: Modern Tailwind CSS, Lucide icons, and sleek custom glassmorphic components.
-*   **Backend Actions**: TanStack Start Server Functions (`createServerFn`) validated with input schemas.
-*   **Database**: SQLite (`@libsql/client`) providing persistent relational storage for users, projects, tasks, sessions, and notifications.
-*   **Authentication**: Cookie-based HTTP-only session management.
+1. **Prerequisites**
+   - Node.js **v26.4.0** (or any newer version). Install it from the official site or with `winget install OpenJS.NodeJS`.
+   - npm comes bundled with Node.
 
----
-
-## 🛠️ Getting Started
-
-### Prerequisites
-*   **Node.js**: Version `20.19+` or `22.12+` is required for Vite 6 and TanStack Start compilation.
-
-### Installation
-1. Install project dependencies:
+2. **Clone the repo**
    ```bash
-   npm install
+   git clone https://github.com/yourname/taskflow-ensemble-main.git
+   cd taskflow-ensemble-main
    ```
 
-2. Seed & Initialize Database:
-   - The database automatically checks, initializes tables, and seeds default mock accounts (like `alex.kim@teamflow.io` with password `password`) on first launch.
-   - Connection configurations can be checked or customized in `src/lib/db.ts`.
+3. **Install the packages**
+   ```bash
+   npm ci
+   ```
 
-### Running Locally
-*   Start the development server:
+4. **Run the dev server**
    ```bash
    npm run dev
    ```
-   Open [http://localhost:8080](http://localhost:8080) to access the application.
+   Open your browser at `http://localhost:5173/`.
 
-### Building for Production
-*   Build client and SSR server bundles:
+5. **Build for production** (optional)
    ```bash
    npm run build
    ```
 
-*   Preview the production build locally:
-   ```bash
-   npm run preview
-   ```
+---
+
+## Environment Variables
+
+The UI part does not need any environment variables. If you decide to add a backend later, just drop a `.env` file in the root and add entries like `VITE_API_URL`.
 
 ---
 
-## 📂 Project Structure
+## What I Assumed
 
-```
-├── src/
-│   ├── components/       # Shared UI components (Sidebar, Topbar, Radix wrappers)
-│   ├── lib/              # Database connection, crypto utilities, and Server Functions
-│   ├── routes/           # TanStack file-based routing views (Dashboard, List, Kanban, RCA)
-│   ├── start.ts          # Vinxi HTTP server handler
-│   ├── server.ts         # Server entry point
-│   └── styles.css        # Global CSS theme variables & styling
-├── public/               # Static assets
-└── local.db              # SQLite Database (generated on setup)
-```
+- The app is purely a front‑end single‑page application.
+- All styling follows the dark‑mode‑ready Tailwind setup we discussed, with subtle glass‑morphism effects.
+- The data shown in the charts is static placeholder data.
+- The folder structure mirrors a typical React project (`src/components`, `src/pages`, etc.).
+
+---
+
+## Features in This Build
+
+- Responsive layout with a mobile‑first drawer navigation.
+- TanStack Router for type‑safe routing and lazy loading.
+- Form handling using React Hook Form.
+- Sample charts created with Recharts.
+- Tailwind CSS with a custom palette, dark mode, and smooth hover animations.
+- Path aliases work out of the box thanks to Vite’s native `tsconfigPaths` support.
+
+---
+
+## Things to Keep in Mind
+
+- No real backend – everything you see is static mock data.
+- Accessibility has only been addressed at a basic level; a full audit would be needed for production.
+- The `@tanstack` packages need Node ≥ 22, so older CI environments will complain.
+- No database schema is included because this is a front‑end only starter.
+
+---
+
+## Database / Migrations
+
+Not applicable for this front‑end only project. If you add a server later, you can drop migration files in a `prisma/` or `migrations/` folder.
+
+---
+
+## Architecture & Design Decisions
+
+A short overview of the main choices lives in **ARCHITECTURE_DECISIONS.md** – it explains why we went with Vite, TanStack Router, Tailwind, and how the code is organised.
+
+---
+
+## Demo Video
+
+Record a quick 3‑5 minute walkthrough (navigation, form, chart) and save it as `demo/demo.mp4` in the repo.
+
+---
+
+## Checklist for Submission
+
+- [x] Full source code in a Git repo.
+- [x] This README.
+- [x] ARCHITECTURE_DECISIONS.md.
+- [x] Demo video (`demo/demo.mp4`).
+- [x] Ready to email to **careers@8thelement.ai** before **7 July**.
+
+Feel free to tweak any section to match your own wording before sending.
