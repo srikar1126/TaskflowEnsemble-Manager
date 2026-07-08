@@ -80,21 +80,3 @@ Not applicable for this front‑end only project. If you add a server later, you
 ## Architecture & Design Decisions
 
 A short overview of the main choices lives in **ARCHITECTURE_DECISIONS.md** – it explains why we went with Vite, TanStack Router, Tailwind, and how the code is organised.
-
----
-
-## Demo Video
-
-Record a quick 3‑5 minute walkthrough (navigation, form, chart) and save it as `demo/demo.mp4` in the repo.
-
----
-
-## Checklist for Submission
-
-- [x] Full source code in a Git repo.
-- [x] This README.
-- [x] ARCHITECTURE_DECISIONS.md.
-- [x] Demo video (`demo/demo.mp4`).
-- [x] Ready to email to **careers@8thelement.ai** before **7 July**.
-
-Feel free to tweak any section to match your own wording before sending.
